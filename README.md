@@ -14,7 +14,7 @@ This project is part of my learning journey to transition from analytics into Da
 
 ## Tech Stack
 
-- **Airflow** – DAG scheduling and orchestration
+- **Apache Airflow (Astro Platform)** – DAG scheduling and orchestration
 - **MinIO** – S3-compatible object storage for intermediate files
 - **Docker** – For isolated data transformation tasks
 - **PostgreSQL** – Data warehouse to store final results
@@ -49,11 +49,12 @@ Includes:
 ## Project Structure
 ```
 dags/
-└── stock_market.py # Airflow DAG definition
+└── stock_market.py              # Airflow DAG definition
+
 include/
 └── stock_market/
-├── tasks.py # Python logic for API call & file save
-└── format_prices.py # Docker-run transformation script
+    ├── tasks.py                # Python logic for API call & file save
+    └── format_prices.py        # Docker-run transformation script
 ```
 
 
