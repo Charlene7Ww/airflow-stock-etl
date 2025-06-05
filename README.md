@@ -2,7 +2,6 @@
 
 This project is a complete end-to-end stock data pipeline built with **Apache Airflow**, designed to automatically fetch, transform, and load stock market data into a PostgreSQL database for visualization in Metabase.
 
----
 
 ## Why this project?
 
@@ -10,7 +9,7 @@ As someone who enjoys investing and has made my best returns on NVDA, I wanted t
 
 This project is part of my learning journey to transition from analytics into Data Engineering.
 
----
+
 
 ## Tech Stack
 
@@ -22,7 +21,6 @@ This project is part of my learning journey to transition from analytics into Da
 - **Yahoo Finance API** – Free source for historical stock data
 - **Astro SDK** – Used for simplified data loading
 
----
 
 ## Workflow Overview
 
@@ -33,7 +31,7 @@ This project is part of my learning journey to transition from analytics into Da
 5. Transformed CSV is loaded into **PostgreSQL**
 6. **Metabase** visualizes daily prices, volumes, and trends
 
----
+
 
 ## Example: NVDA Dashboard
 
@@ -44,7 +42,7 @@ Includes:
 
 > I plan to expand this to QQQ and VOO for broader ETF tracking and performance comparison.
 
----
+
 
 ## Project Structure
 ```
