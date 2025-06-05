@@ -6,7 +6,11 @@ from minio import Minio
 from io import BytesIO
 
 def main():
+<<<<<<< HEAD
     base_path = os.environ.get("SPARK_APPLICATION_ARGS")  # 形如 stock-market/NVDA/2025-05-27
+=======
+    base_path = os.environ.get("SPARK_APPLICATION_ARGS")  # stock-market/NVDA/2025-05-27
+>>>>>>> 82de2d6 (Update)
     if not base_path:
         raise ValueError("Missing SPARK_APPLICATION_ARGS")
 
@@ -56,7 +60,11 @@ def main():
         length=len(csv_data),
         content_type="text/csv"
     )
+<<<<<<< HEAD
     print("✅ CSV uploaded successfully!")
+=======
+    print("CSV uploaded successfully")
+>>>>>>> 82de2d6 (Update)
 
 if __name__ == "__main__":
     main()

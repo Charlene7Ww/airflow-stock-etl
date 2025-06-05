@@ -62,7 +62,7 @@ def stock_market_dag(): # is_api_available_task
         api_version='auto',
         auto_remove="success",
         docker_url="unix://var/run/docker.sock",
-        network_mode="new-udemy-project_6e227e_airflow",  # ✅ 正确网络名
+        network_mode="new-udemy-project_6e227e_airflow",  
         tty=True,
         xcom_all=False,
         mount_tmp_dir=False,
@@ -95,15 +95,15 @@ def stock_market_dag(): # is_api_available_task
             conn_id='postgres',
             metadata=Metadata(schema='public')
         ),
-        if_exists='replace',  # ✅ 这里才是对的地方
+
+        if_exists='replace', 
+
         load_options={
             "aws_access_key_id": BaseHook.get_connection("minio").login,
             "aws_secret_access_key": BaseHook.get_connection("minio").password,
             "endpoint_url": BaseHook.get_connection("minio").host
         }
     )
-
-
 
 
     is_api_available() >> get_stock_prices >> store_prices >>format_prices >> get_formatted_csv >> load_to_dw
