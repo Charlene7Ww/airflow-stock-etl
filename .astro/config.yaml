@@ -1,0 +1,21 @@
+project:
+  name: new-udemy-project
+
+dev:
+  compose:
+    network: airflow   # ✅ 用 Astro 默认 network 名
+    services:
+      webserver:
+        volumes:
+          - /var/run/docker.sock:/var/run/docker.sock
+      scheduler:
+        volumes:
+          - /var/run/docker.sock:/var/run/docker.sock
+      triggerer:
+        volumes:
+          - /var/run/docker.sock:/var/run/docker.sock
+      spark-worker:
+        build:
+          context: ./spark/worker
+          networks:
+            - airflow

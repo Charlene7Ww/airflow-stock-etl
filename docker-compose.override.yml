@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  metabase:
+    image: metabase/metabase
+    ports:
+      - "3000:3000"
+    networks:
+      - airflow
+  external-minio:
+    image: minio/minio
+    command: server /data --console-address ":9001"
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minio123
+    volumes:
+      - minio_data:/data
+    networks:
+      - airflow  # 注意：网络名改成 airflow，统一和 config.yaml 保持一致
+
+  scheduler:
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  webserver:
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  triggerer:
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+  minio_data:
+
+networks:
+  airflow:
+    external: false  # 如果你也统一用 config.yaml 的 airflow 网络，建议 false 或删掉这一段

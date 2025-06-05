@@ -1,0 +1,5 @@
+FROM minio/minio:RELEASE.2024-06-13T22-53-53Z
+
+USER root
+RUN microdnf install curl && microdnf clean all
+USER 1000
